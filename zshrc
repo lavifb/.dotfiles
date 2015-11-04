@@ -38,4 +38,23 @@ alias nvim='nocorrect nvim'
 # python3
 alias py3='python3'
 
+# vim shortcuts in shell
+bindkey -v
+
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+function zle-line-init zle-keymap-select {
+    RPS1="${${KEYMAP/vicmd/[vi]}/(main|viins)/}"
+    RPS2=$RPS1
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
+
 export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
