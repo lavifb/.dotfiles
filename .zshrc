@@ -21,11 +21,12 @@ HELPDIR=/usr/local/share/zsh/help
 # put casks in /Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-alias gm='git commit -m'
+alias gcm='git commit -m'
 alias gam='git commit -am'
 alias gc='git commit'
 alias gp='git push'
-alias gl='git pull'
+alias gll='git pull'
+alias gr='git reset'
 alias ghh='git reset HEAD --hard'
 alias gs='git status'
 alias gch='git checkout'
@@ -33,5 +34,8 @@ alias gmr='git merge'
 
 # fix nvim correct
 alias nvim='nocorrect nvim'
+
+# python3
+alias py3='python3'
 
 export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
