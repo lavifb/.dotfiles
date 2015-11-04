@@ -49,9 +49,10 @@ bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
 function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/[vi]}/(main|viins)/}"
+    RPS1="${${KEYMAP/vicmd/[☢]}/(main|viins)/}"
     RPS2=$RPS1
     zle reset-prompt
+    zle -R
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
