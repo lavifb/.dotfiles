@@ -3,6 +3,7 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+#	Modified for use by Lavi Blumberg <lavifb@gmail.com>
 #
 
 # Source Prezto.
@@ -29,5 +30,8 @@ alias ghh='git reset HEAD --hard'
 alias gs='git status'
 alias gch='git checkout'
 alias gmr='git merge'
+
+# fix nvim correct
+alias nvim='nocorrect nvim'
 
 export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
