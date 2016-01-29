@@ -61,3 +61,4 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
 export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
+export PATH="$PATH:$HOME/miniconda3/bin" # Add anaconda
