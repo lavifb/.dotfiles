@@ -32,7 +32,6 @@ set confirm		" dialog asking to confirm things instead of error
 set wildmenu		" menu pops up for tab completion on commands 
 set ruler		" show current position at bottm
 filetype indent on	" enable loading indent file for specific files
-filetype plugin indent on   " so I can use pathogen.vim
 syntax on		" turn on syntax highlighting
 set mouse=a		" turn on mouse support
 
@@ -50,10 +49,10 @@ map <C-n> :NERDTreeToggle<CR>
 colo Tomorrow-Night-Bright
 
 " line highlighting
-hi CursorLine cterm=None ctermbg=235 
-set cursorline!
-hi CursorColumn cterm=None ctermbg=235
-set cursorcolumn!
+" hi CursorLine cterm=None ctermbg=235 
+" set cursorline!
+" hi CursorColumn cterm=None ctermbg=235
+" set cursorcolumn!
 
 
 " wildmenu colors

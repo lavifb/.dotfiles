@@ -1,65 +1,18 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype on                   
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Make sure you use single quotes
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git' " git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
+" File browser tab
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-Plugin 'bling/vim-airline'
+" Comment shortcut
+Plug 'tomtom/tcomment_vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()
 
-"death to the swapfile
-"set noswapfile
-""""""""""""""""""""""""""""""
-" airline
- """"""""""""""""""""""""""""""
-let g:airline_theme             = 'tomorrow'
-" let g:airline_enable_branch     = 1
-" let g:airline_enable_syntastic  = 1
-"
-" " vim-powerline symbols
-" let g:airline_left_sep          = '⮀'
-" let g:airline_left_alt_sep      = '⮁'
-" let g:airline_right_sep         = '⮂'
-" let g:airline_right_alt_sep     = '⮃'
-" let g:airline_branch_prefix     = '⭠'
-" let g:airline_readonly_symbol   = '⭤'
-" let g:airline_linecolumn_prefix = '⭡'
-set laststatus=2	" for airline status line 
 set noshowmode
 
 set t_Co=256		" 256 color terminal
@@ -79,9 +32,14 @@ set confirm		" dialog asking to confirm things instead of error
 set wildmenu		" menu pops up for tab completion on commands 
 set ruler		" show current position at bottm
 filetype indent on	" enable loading indent file for specific files
-filetype plugin indent on   " so I can use pathogen.vim
 syntax on		" turn on syntax highlighting
+set mouse=a		" turn on mouse support
 
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" tcomment-vim
+" map <Cmd
 
 " Colors - {{
 " Explanation of 256 colors and vim: http://www.frexx.de/xterm-256-notes/
@@ -91,10 +49,10 @@ syntax on		" turn on syntax highlighting
 colo Tomorrow-Night-Bright
 
 " line highlighting
-hi CursorLine cterm=None ctermbg=235 
-set cursorline!
-hi CursorColumn cterm=None ctermbg=235
-set cursorcolumn!
+" hi CursorLine cterm=None ctermbg=235 
+" set cursorline!
+" hi CursorColumn cterm=None ctermbg=235
+" set cursorcolumn!
 
 
 " wildmenu colors
