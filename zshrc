@@ -19,7 +19,9 @@ autoload run-help
 HELPDIR=/usr/local/share/zsh/help
 
 # put casks in /Applications
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+#export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 alias gcm='git commit -m'
 alias gam='git commit -am'
