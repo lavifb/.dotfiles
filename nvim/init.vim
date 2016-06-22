@@ -1,5 +1,5 @@
 set nocompatible              " be iMproved, required
-filetype on                   
+filetype on
 
 call plug#begin('~/.vim/plugged')
 
@@ -11,13 +11,19 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Comment shortcut
 Plug 'tomtom/tcomment_vim'
 
+" git plugin
+Plug 'tpope/vim-fugitive'
+
+" pretty status line
+Plug 'vim-airline/vim-airline'
+
 call plug#end()
 
 set noshowmode
 
 set t_Co=256		" 256 color terminal
 set number		" line numbers
-set softtabstop=4	" number of columns tabs count for 
+set softtabstop=4	" number of columns tabs count for
 set shiftwidth=4	" number of columns indented with << and >>
 set backspace=2		" make backspce work like most other apps
 set pastetoggle=<F2>	" allows text to be pasted with original alignment
@@ -29,7 +35,7 @@ set ignorecase		" ignore case on search
 set shortmess=atI	" short messages and don't show intro
 set showcmd		" shows normal mode key presses at bottom
 set confirm		" dialog asking to confirm things instead of error
-set wildmenu		" menu pops up for tab completion on commands 
+set wildmenu		" menu pops up for tab completion on commands
 set ruler		" show current position at bottm
 filetype indent on	" enable loading indent file for specific files
 syntax on		" turn on syntax highlighting
@@ -37,6 +43,9 @@ set mouse=a		" turn on mouse support
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
+
+" vim-airline
+" let g:airline_powerline_fonts = 1
 
 " tcomment-vim
 " map <Cmd
@@ -49,7 +58,7 @@ map <C-n> :NERDTreeToggle<CR>
 colo Tomorrow-Night-Bright
 
 " line highlighting
-" hi CursorLine cterm=None ctermbg=235 
+" hi CursorLine cterm=None ctermbg=235
 " set cursorline!
 " hi CursorColumn cterm=None ctermbg=235
 " set cursorcolumn!
@@ -57,7 +66,7 @@ colo Tomorrow-Night-Bright
 
 " wildmenu colors
 hi WildMenu cterm=None ctermbg=black ctermfg=2
-hi StatusLine term=reverse ctermfg=0 ctermbg=white gui=bold,reverse 
+hi StatusLine term=reverse ctermfg=0 ctermbg=white gui=bold,reverse
 " }}
 
 " Key adjusts - {{
@@ -93,7 +102,7 @@ cmap w!! w !sudo tee >/dev/null %
 " n% - go to n percent of file
 " E, B, W - strict word definitions
 " ctrl n - word completion
-" >i{ indent block in 
+" >i{ indent block in
 " <i{ decrease indent
 " :Sex - really? but it's seriously useful
 " f F - find occurrence
@@ -102,6 +111,3 @@ cmap w!! w !sudo tee >/dev/null %
 " ; - previous occurrence of f, t
 " ctrl L - redraw screen
 " }}
-
-" ./vim/autoload/pathogen.vim
-"call pathogen#infect()
