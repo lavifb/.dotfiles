@@ -5,7 +5,8 @@
 #	Lavi Blumberg <lavifb@gmail.com>
 #
 
-# zplug
+######################
+# ZPLUG
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
@@ -14,9 +15,11 @@ zplug "mafredri/zsh-async"
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
 zplug load
-# end zplug
+# END ZPLUG
+######################
 
-# prompt
+######################
+# PROMPT
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' stagedstr '%F{34}●'
@@ -36,12 +39,14 @@ precmd () {
 
 setopt prompt_subst
 PROMPT='%F{yellow}%n%f:%F{blue}%~%f${vcs_info_msg_0_} %(?/%F{white}/%F{red})∮ %f'
-
-# autoload -U promptinit && promptinit
-# prompt pure
+# END PROMPT
+######################
 
 # zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+alias ..='cd ..'
+alias cask='brew cask'
 
 alias gcm='git commit -m'
 alias gam='git commit -am'
