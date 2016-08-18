@@ -2,25 +2,45 @@
 # Executes commands at the start of an interactive session.
 #
 # Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#	Modified for use by Lavi Blumberg <lavifb@gmail.com>
+#	Lavi Blumberg <lavifb@gmail.com>
 #
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-# Customize to your needs...
+zplug "mafredri/zsh-async"
 
-# move the zsh-help
-unalias run-help
-autoload run-help
-HELPDIR=/usr/local/share/zsh/help
+zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
-# put casks in /Applications
-#export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+zplug load
+# end zplug
 
+# prompt
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:*' stagedstr '%F{34}●'
+zstyle ':vcs_info:*' unstagedstr '%F{136}●'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{136}%r'
+zstyle ':vcs_info:*' enable git svn
+precmd () {
+    if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
+        zstyle ':vcs_info:*' formats ' [%F{yellow}%b%c%u%F{blue}%f]'
+    } else {
+        zstyle ':vcs_info:*' formats ' [%F{yellow}%b%c%u%F{red}●%F{blue}%f]'
+    }
+
+    vcs_info
+}
+
+setopt prompt_subst
+PROMPT='%F{yellow}%n%f:%F{blue}%~%f${vcs_info_msg_0_} %(?/%F{white}/%F{red})∮ %f'
+
+# autoload -U promptinit && promptinit
+# prompt pure
+
+# zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 alias gcm='git commit -m'
@@ -33,6 +53,7 @@ alias ghh='git reset HEAD --hard'
 alias gs='git status'
 alias gch='git checkout'
 alias gmr='git merge'
+alias gb='git branch'
 
 # fix nvim correct
 alias nvim='nocorrect nvim'
@@ -51,6 +72,9 @@ bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
+
+# turn on colors for ls
+export CLICOLOR=1
 
 function zle-line-init zle-keymap-select {
     RPS1="${${KEYMAP/vicmd/[☢]}/(main|viins)/}"
