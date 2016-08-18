@@ -7,12 +7,22 @@
 
 ######################
 # ZPLUG
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
 
-zplug "mafredri/zsh-async"
+zplug "zsh-users/zsh-completions"
 
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
+
+zplug "zplug/zplug"
+
+# ask to install uninstalled plugins
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
 zplug load
 # END ZPLUG
@@ -43,10 +53,13 @@ PROMPT='%F{yellow}%n%f:%F{blue}%~%f${vcs_info_msg_0_} %(?/%F{white}/%F{red})∮ 
 ######################
 
 # zsh-completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+source $HOME/.zfunc/comp.init.zsh
+# autoload -Uz compinit && compinit
+# zstyle ':completion:*' menu select
 
 alias ..='cd ..'
 alias cask='brew cask'
+alias rm='rm -i'
 
 alias gcm='git commit -m'
 alias gam='git commit -am'
@@ -89,7 +102,7 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
-export KEYTIMEOUT=1
+# export KEYTIMEOUT=1
 
 export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
 export PATH="$PATH:$HOME/miniconda3/bin" # Add anaconda
