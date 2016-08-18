@@ -9,8 +9,8 @@ if [[ "$TERM" == 'dumb' ]]; then
 fi
 
 # Add zsh-completions to $fpath.
-fpath=($ZPLUG_HOME/zsh-users/zsh-completions/src ${fpath})
-# fpath=(/usr/local/share/zsh/site-functions ${fpath})
+fpath=($ZPLUG_HOME/repos/zsh-users/zsh-completions/src ${fpath})
+fpath=(/usr/local/share/zsh/site-functions ${fpath})
 # fpath=(${fpath} /usr/local/share/zsh/site-functions)
 
 # Load and initialize the completion system ignoring insecure directories.
