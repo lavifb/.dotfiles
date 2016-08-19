@@ -5,16 +5,20 @@
 #	Lavi Blumberg <lavifb@gmail.com>
 #
 
+# zmodload zsh/zprof
+
 ######################
 # ZPLUG
 export ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
 
-zplug "zsh-users/zsh-completions"
+#if ! $ZPLUG_CACHE_CLEAN; then
+    zplug "zsh-users/zsh-completions"
 
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+    zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
-zplug "zplug/zplug"
+    zplug "zplug/zplug"
+#fi
 
 # ask to install uninstalled plugins
 if ! zplug check --verbose; then
@@ -106,3 +110,5 @@ zle -N zle-keymap-select
 
 export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
 export PATH="$PATH:$HOME/miniconda3/bin" # Add anaconda
+
+# zprof
