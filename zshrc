@@ -5,28 +5,26 @@
 #	Lavi Blumberg <lavifb@gmail.com>
 #
 
-# zmodload zsh/zprof
-
 ######################
 # ZPLUG
 export ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
 
 #if ! $ZPLUG_CACHE_CLEAN; then
-    zplug "zsh-users/zsh-completions"
+    zplug "zsh-users/zsh-completions", defer:2
 
-    zplug "zsh-users/zsh-syntax-highlighting", nice:10
+    zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
-    zplug "zplug/zplug"
+    zplug 'zplug/zplug', hook-build:'zplug --self-manage', defer:2
 #fi
 
 # ask to install uninstalled plugins
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+#if ! zplug check --verbose; then
+#    printf "Install? [y/N]: "
+#    if read -q; then
+#        echo; zplug install
+#    fi
+#fi
 
 zplug load
 # END ZPLUG
@@ -59,7 +57,7 @@ PROMPT='%F{yellow}%n%f:%F{blue}%~%f${vcs_info_msg_0_} %(?/%F{white}/%F{red})∮ 
 # zsh-completions
 # source $HOME/.zfunc/comp.init.zsh
 # autoload -Uz compinit && compinit
-# zstyle ':completion:*' menu select
+zstyle ':completion:*' menu select
 
 alias ..='cd ..'
 alias cask='brew cask'
