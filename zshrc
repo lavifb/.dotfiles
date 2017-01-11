@@ -142,10 +142,10 @@ bindkey '^e' end-of-line
 export CLICOLOR=1
 
 # Show when in vi NORMAL mode# Show when in vi NORMAL mode# Show when in vi NORMAL mode
-precmd() { RPROMPT="" }
+#precmd() { RPROMPT="" }
 function zle-line-init zle-keymap-select {
     VIM_PROMPT="%F{green}[NORMAL]%f"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+    RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
     zle reset-prompt
 }
 zle -N zle-line-init
