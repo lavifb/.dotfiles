@@ -17,6 +17,8 @@ source $ZPLUG_HOME/init.zsh
 
     zplug 'esc/conda-zsh-completion', defer:2
 
+    zplug 'srijanshetty/zsh-pip-completion', defer:2
+
     zplug 'zplug/zplug', hook-build:'zplug --self-manage', defer:2
 
 #fi
