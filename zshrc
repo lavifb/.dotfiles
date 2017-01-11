@@ -16,7 +16,7 @@ source $ZPLUG_HOME/init.zsh
     zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
     zplug 'esc/conda-zsh-completion', defer:2
-    
+
     zplug 'zplug/zplug', hook-build:'zplug --self-manage', defer:2
 
 #fi
@@ -139,17 +139,17 @@ bindkey '^e' end-of-line
 # turn on colors for ls
 export CLICOLOR=1
 
+# Show when in vi NORMAL mode# Show when in vi NORMAL mode# Show when in vi NORMAL mode
+precmd() { RPROMPT="" }
 function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/[☢]}/(main|viins)/}"
-    RPS2=$RPS1
+    VIM_PROMPT="%F{green}[NORMAL]%f"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
     zle reset-prompt
-    zle -R
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
-# export KEYTIMEOUT=1
+export KEYTIMEOUT=1
 
 export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
 export PATH="$PATH:$HOME/miniconda3/bin" # Add anaconda
 
-# zprof
