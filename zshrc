@@ -54,9 +54,9 @@ PROMPT='%F{yellow}%n%f:%F{blue}%~%f${vcs_info_msg_0_} %(?/%F{white}/%F{red})∮ 
 # END PROMPT
 ######################
 
-# zsh-completions
+#zsh-completions
 # source $HOME/.zfunc/comp.init.zsh
-# autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 
 alias ..='cd ..'
