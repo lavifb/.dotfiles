@@ -57,16 +57,29 @@ precmd () {
 setopt prompt_subst
 PROMPT='%F{yellow}%n%f:%F{blue}%~%f${vcs_info_msg_0_} %(?/%F{white}/%F{red})∮ %f'
 
+VIM_PROMPT="%F{green}[NORMAL]%f"
+
+
 # Show when in vi NORMAL mode
-#precmd() { RPROMPT="" }
 function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%F{green}[NORMAL]%f"
-    RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
     zle reset-prompt
+    zle -R
 }
+
+# Redraw prompt when window is resized
+TRAPWINCH() {
+    zle && { zle reset-prompt; zle -R }
+}
+
+function vi_mode_indicator {
+    echo "${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
+}
+
 zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1
+
+RPROMPT='$(vi_mode_indicator)'
 # END PROMPT
 ######################
 
