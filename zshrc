@@ -141,6 +141,9 @@ bindkey '^e' end-of-line
 # turn on colors for ls
 export CLICOLOR=1
 
+# fix base-16 colors
+~/.zscripts/base16-tomorrow-night.sh
+
 # Show when in vi NORMAL mode# Show when in vi NORMAL mode# Show when in vi NORMAL mode
 #precmd() { RPROMPT="" }
 function zle-line-init zle-keymap-select {

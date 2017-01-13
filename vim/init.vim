@@ -55,7 +55,8 @@ map <C-n> :NERDTreeToggle<CR>
 " vim color names: http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 " thread that helped me choose the color for hi CursorLine: http://tech.groups.yahoo.com/group/vim/message/105727
 " choosing colors: http://colorschemedesigner.com/
-colo Tomorrow-Night-Bright
+let base16colorspace=256  " Access colors present in 256 colorspace
+colo base16-tomorrow-night
 
 " line highlighting
 " hi CursorLine cterm=None ctermbg=235
