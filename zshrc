@@ -105,6 +105,10 @@ zstyle ':completion:*:history-words' meanu yes
 ####################
 
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
 alias cask='brew cask'
 alias rm='rm -i'
 
