@@ -5,6 +5,8 @@
 #	Lavi Blumberg <lavifb@gmail.com>
 #
 
+#zmodload zsh/zprof
+
 ######################
 # ZPLUG
 export ZPLUG_HOME=~/.zplug
@@ -178,3 +180,4 @@ export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
 export PATH="$PATH:$HOME/miniconda3/bin" # Add anaconda
 
+#zprof
