@@ -11,13 +11,13 @@ export ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
 
 #if ! $ZPLUG_CACHE_CLEAN; then
-    zplug "zsh-users/zsh-completions", defer:2
+    zplug "zsh-users/zsh-completions"
 
     zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
-    zplug 'esc/conda-zsh-completion', defer:2
+    zplug 'esc/conda-zsh-completion'
 
-    zplug 'srijanshetty/zsh-pip-completion', defer:2
+    zplug 'srijanshetty/zsh-pip-completion'
 
     zplug 'zplug/zplug', hook-build:'zplug --self-manage', defer:2
 
