@@ -56,6 +56,17 @@ precmd () {
 
 setopt prompt_subst
 PROMPT='%F{yellow}%n%f:%F{blue}%~%f${vcs_info_msg_0_} %(?/%F{white}/%F{red})∮ %f'
+
+# Show when in vi NORMAL mode
+#precmd() { RPROMPT="" }
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%F{green}[NORMAL]%f"
+    RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
 # END PROMPT
 ######################
 
@@ -147,17 +158,6 @@ export CLICOLOR=1
 
 # fix base-16 colors
 ~/.zscripts/base16-tomorrow-night.sh
-
-# Show when in vi NORMAL mode# Show when in vi NORMAL mode# Show when in vi NORMAL mode
-#precmd() { RPROMPT="" }
-function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%F{green}[NORMAL]%f"
-    RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
-    zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
-export KEYTIMEOUT=1
 
 # put casks in ~/Applications
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
