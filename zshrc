@@ -168,6 +168,9 @@ bindkey '^r' history-incremental-search-backward
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
+# bind delete key to actually work
+bindkey "^[[3~" delete-char
+
 # turn on colors for ls
 export CLICOLOR=1
 
