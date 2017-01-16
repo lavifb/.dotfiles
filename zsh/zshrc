@@ -5,25 +5,22 @@
 #	Lavi Blumberg <lavifb@gmail.com>
 #
 
-#zmodload zsh/zprof
+# zmodload zsh/zprof
 
 ######################
 # ZPLUG
 export ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
 
-#if ! $ZPLUG_CACHE_CLEAN; then
-    zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-completions"
 
-    zplug "zsh-users/zsh-syntax-highlighting", defer:3
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
-    zplug 'esc/conda-zsh-completion'
+zplug 'esc/conda-zsh-completion'
 
-    zplug 'srijanshetty/zsh-pip-completion'
+zplug 'srijanshetty/zsh-pip-completion'
 
-    zplug 'zplug/zplug', hook-build:'zplug --self-manage', defer:2
-
-#fi
+zplug 'zplug/zplug', hook-build:'zplug --self-manage', defer:2
 
 # ask to install uninstalled plugins
 #if ! zplug check --verbose; then
@@ -149,6 +146,7 @@ alias gs='git status'
 alias gch='git checkout'
 alias gmr='git merge'
 alias gb='git branch'
+alias gd='git diff'
 
 # fix nvim correct
 alias nvim='nocorrect nvim'
@@ -183,4 +181,4 @@ export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
 export PATH="$PATH:$HOME/miniconda3/bin" # Add anaconda
 
-#zprof
+# zprof
