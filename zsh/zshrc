@@ -9,7 +9,7 @@
 
 ######################
 # ZPLUG
-export ZPLUG_HOME=~/.zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 zplug "zsh-users/zsh-completions"
@@ -18,9 +18,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
 zplug 'esc/conda-zsh-completion'
 
-zplug 'srijanshetty/zsh-pip-completion'
-
-zplug 'zplug/zplug', hook-build:'zplug --self-manage', defer:2
+# zplug 'zplug/zplug', hook-build:'zplug --self-manage', defer:2
 
 # ask to install uninstalled plugins
 #if ! zplug check --verbose; then
