@@ -25,6 +25,6 @@ ln -sfh $DOTHOME/vim $HOME/.config/nvim
 ln -sf $DOTHOME/git/gitconfig $HOME/.gitconfig
 
 # tmux
-
+ln -sf $DOTHOME/tmux/tmux.conf $HOME/.tmux.conf
 
 echo "Done setting up symlinks."
