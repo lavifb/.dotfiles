@@ -167,7 +167,9 @@ bindkey '^e' end-of-line
 # bind keys to get them to work
 bindkey "^[[3~" delete-char
 bindkey "^[[H"  beginning-of-line
+bindkey "^[[1~" beginning-of-line # for tmux
 bindkey "^[[F"  end-of-line
+bindkey "^[[4~" end-of-line       # for tmux
 bindkey "^[[5~" up-line-or-search
 bindkey "^[[6~" down-line-or-search
 
