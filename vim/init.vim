@@ -66,6 +66,7 @@ colo base16-tomorrow-night
 
 
 " wildmenu colors
+"TODO: customize vim status line colors
 hi WildMenu cterm=None ctermbg=black ctermfg=2
 hi StatusLine term=reverse ctermfg=0 ctermbg=white gui=bold,reverse
 " }}
