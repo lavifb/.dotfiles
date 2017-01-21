@@ -16,6 +16,7 @@ Plug 'tpope/vim-fugitive'
 
 " pretty status line
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -45,7 +46,7 @@ set mouse=a		" turn on mouse support
 map <C-n> :NERDTreeToggle<CR>
 
 " vim-airline
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 
 " tcomment-vim
 " map <Cmd
@@ -57,6 +58,7 @@ map <C-n> :NERDTreeToggle<CR>
 " choosing colors: http://colorschemedesigner.com/
 let base16colorspace=256  " Access colors present in 256 colorspace
 colo base16-tomorrow-night
+let g:airline_theme='base16_shell'
 
 " line highlighting
 " hi CursorLine cterm=None ctermbg=235
@@ -66,9 +68,8 @@ colo base16-tomorrow-night
 
 
 " wildmenu colors
-"TODO: customize vim status line colors
-hi WildMenu cterm=None ctermbg=black ctermfg=2
-hi StatusLine term=reverse ctermfg=0 ctermbg=white gui=bold,reverse
+"hi WildMenu cterm=None ctermbg=black ctermfg=2
+"hi StatusLine term=reverse ctermfg=0 ctermbg=white gui=bold,reverse
 " }}
 
 " Key adjusts - {{
