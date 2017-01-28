@@ -7,6 +7,9 @@
 
 # zmodload zsh/zprof
 
+# fix base-16 colors
+~/.zscripts/base16-tomorrow-night.sh
+
 ######################
 # ZPLUG
 export ZPLUG_HOME=/usr/local/opt/zplug
@@ -36,16 +39,16 @@ zplug load
 # PROMPT
 autoload -Uz vcs_info
 
-zstyle ':vcs_info:*' stagedstr '%F{34}●'
-zstyle ':vcs_info:*' unstagedstr '%F{136}●'
+zstyle ':vcs_info:*' stagedstr '%F{2}●'
+zstyle ':vcs_info:*' unstagedstr '%F{1}●'
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{136}%r'
 zstyle ':vcs_info:*' enable git svn
 precmd () {
     if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
-        zstyle ':vcs_info:*' formats ' [%F{yellow}%b%c%u%F{blue}%f]'
+        zstyle ':vcs_info:*' formats ' [%F{yellow}%b%c%u%f]'
     } else {
-        zstyle ':vcs_info:*' formats ' [%F{yellow}%b%c%u%F{red}●%F{blue}%f]'
+        zstyle ':vcs_info:*' formats ' [%F{yellow}%b%c%u%F{5}●%f]'
     }
 
     vcs_info
@@ -179,9 +182,6 @@ bindkey "^[[6~" down-line-or-search
 
 # turn on colors for ls
 export CLICOLOR=1
-
-# fix base-16 colors
-~/.zscripts/base16-tomorrow-night.sh
 
 # put casks in ~/Applications
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
