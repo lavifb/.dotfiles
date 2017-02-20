@@ -26,5 +26,6 @@ ln -sf $DOTHOME/git/gitconfig $HOME/.gitconfig
 
 # tmux
 ln -sf $DOTHOME/tmux/tmux.conf $HOME/.tmux.conf
+ln -sf $DOTHOME/tmux/tmux-osx.conf $HOME/.tmux/tmux-osx.conf
 
 echo "Done setting up symlinks."
