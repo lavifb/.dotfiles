@@ -190,4 +190,11 @@ export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
 export PATH="$PATH:$HOME/miniconda3/bin" # Add anaconda
 
+# MKL Variables
+export MKLROOT="/opt/intel/mkl"
+export DYLD_LIBRARY_PATH="/opt/intel/tbb/lib:/opt/intel/lib:/opt/intel/mkl/lib:$DYLD_LIBRARY_PATH"
+export LIBRARY_PATH="/opt/intel/tbb/lib:/opt/intel/lib:/opt/intel/mkl/lib:$LIBRARY_PATH"
+export NLSPATH="/opt/intel/mkl/lib/locale/%l_%t/%N"
+export CPATH="$MKLROOT/include:$CPATH"
+
 # zprof
