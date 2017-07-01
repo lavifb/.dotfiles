@@ -153,6 +153,9 @@ alias gd='git diff'
 # fix nvim correct
 alias nvim='nocorrect nvim'
 
+# use lldb without sandbox
+alias lldb='/Applications/Xcode.app/Contents/Developer/usr/bin/lldb'
+
 # python3
 alias py3='python3'
 
