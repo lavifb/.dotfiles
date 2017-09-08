@@ -149,6 +149,7 @@ alias gch='git checkout'
 alias gmr='git merge'
 alias gb='git branch'
 alias gd='git diff'
+alias glg='git log --graph --pretty=oneline --abbrev-commit'
 
 # fix nvim correct
 alias nvim='nocorrect nvim'
