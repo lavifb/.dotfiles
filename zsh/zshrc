@@ -153,6 +153,7 @@ alias glg='git log --graph --pretty=oneline --abbrev-commit'
 
 # fix nvim correct
 alias nvim='nocorrect nvim'
+alias vim='nocorrect nvim'
 
 # use lldb without sandbox
 alias lldb='/Applications/Xcode.app/Contents/Developer/usr/bin/lldb'
@@ -162,6 +163,12 @@ alias py3='python3'
 
 # leasot for todos
 alias todos='leasot -S **/*'
+
+# bat instead of cat
+alias cat='bat'
+
+# htop instead of top
+alias top='sudo htop'
 
 # vim shortcuts in shell
 bindkey -v
@@ -194,6 +201,8 @@ export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
 export PATH="$PATH:$HOME/miniconda3/bin" # Add anaconda
 
+export PATH="$PATH:$HOME/.cargo/bin" #Rust
+
 # MKL Variables
 export MKLROOT="/opt/intel/mkl"
 export DYLD_LIBRARY_PATH="/opt/intel/tbb/lib:/opt/intel/lib:/opt/intel/mkl/lib:$DYLD_LIBRARY_PATH"
@@ -201,4 +210,5 @@ export LIBRARY_PATH="/opt/intel/tbb/lib:/opt/intel/lib:/opt/intel/mkl/lib:$LIBRA
 export NLSPATH="/opt/intel/mkl/lib/locale/%l_%t/%N"
 export CPATH="$MKLROOT/include:$CPATH"
 
-# zprof
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
