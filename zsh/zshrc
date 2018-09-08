@@ -199,7 +199,7 @@ export CLICOLOR=1
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
 export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
-export PATH="$PATH:usr/local/anaconda3/bin" # Add anaconda
+export PATH="/usr/local/miniconda3/bin:$PATH" # Add anaconda
 
 export PATH="$PATH:$HOME/.cargo/bin" #Rust
 
