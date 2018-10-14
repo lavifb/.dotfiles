@@ -17,3 +17,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[core]
+	excludesfile = /Users/lavi/.gitignore_global

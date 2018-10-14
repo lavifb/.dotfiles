@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export DOTHOME=$(pwd)
+export DOTHOME="$( cd "$( dirname "$0" )" && pwd )"
 
 echo "Setting up symlinks..."
 
@@ -14,15 +14,17 @@ ln -sf $DOTHOME/zsh/zshrc $HOME/.zshrc
 ln -sfh $DOTHOME/zsh/zscripts $HOME/.zscripts
 
 # vim
-ln -sf $DOTHOME/vim/init.vim $HOME/.vimrc
-ln -sf $DOTHOME/vim/autoload $HOME/.vim/autoload
-ln -sf $DOTHOME/vim/colors $HOME/.vim/colors
+ln -sf  $DOTHOME/vim/init.vim $HOME/.vimrc
+ln -sfh $DOTHOME/vim/autoload $HOME/.vim/autoload
+ln -sfh $DOTHOME/vim/colors $HOME/.vim/colors
 
 # neovim
 ln -sfh $DOTHOME/vim $HOME/.config/nvim
 
 # git
 ln -sf $DOTHOME/git/gitconfig $HOME/.gitconfig
+ln -sf $DOTHOME/git/gitignore $HOME/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
 
 # tmux
 ln -sf $DOTHOME/tmux/tmux.conf $HOME/.tmux.conf
