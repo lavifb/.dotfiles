@@ -198,10 +198,14 @@ export CLICOLOR=1
 # put casks in ~/Applications
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
-export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
-export PATH="/usr/local/miniconda3/bin:$PATH" # Add anaconda
+# brew completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
 
-export PATH="$PATH:$HOME/.cargo/bin" #Rust
+export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
+export PATH="/usr/local/miniconda3/bin:$PATH" # Add Anaconda
+export PATH="$PATH:$HOME/.cargo/bin" # add Rust
 
 # MKL Variables
 export MKLROOT="/opt/intel/mkl"
@@ -212,3 +216,5 @@ export CPATH="$MKLROOT/include:$CPATH"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+compinit
