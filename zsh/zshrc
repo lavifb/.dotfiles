@@ -167,6 +167,9 @@ alias todos='leasot -S **/*'
 # bat instead of cat
 alias cat='bat'
 
+# exa instead of ls
+alias ls='exa'
+
 # htop instead of top
 alias top='sudo htop'
 
