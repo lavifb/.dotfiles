@@ -31,7 +31,7 @@ precmd () {
 }
 
 setopt prompt_subst
-PROMPT='%F{yellow}%n%f:%F{blue}%~%f${vcs_info_msg_0_} %(?/%F{white}/%F{red})∮ %f'
+PROMPT='%B%F{yellow}%n%f:%F{blue}%1~%f%b${vcs_info_msg_0_} %(?/%F{white}/%F{red})∮ %f'
 
 VIM_PROMPT="%F{green}[NORMAL]%f"
 
