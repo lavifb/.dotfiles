@@ -11,33 +11,6 @@
 ~/.zscripts/base16-tomorrow-night.sh
 
 ######################
-# ZPLUG
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
-
-zplug "zsh-users/zsh-completions"
-
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-zplug "esc/conda-zsh-completion"
-
-zplug "zsh-users/zsh-autosuggestions"
-
-# zplug 'zplug/zplug', hook-build:'zplug --self-manage', defer:2
-
-# ask to install uninstalled plugins
-#if ! zplug check --verbose; then
-#    printf "Install? [y/N]: "
-#    if read -q; then
-#        echo; zplug install
-#    fi
-#fi
-
-zplug load
-# END ZPLUG
-######################
-
-######################
 # PROMPT
 autoload -Uz vcs_info
 
@@ -160,17 +133,8 @@ alias vim='nocorrect nvim'
 # use lldb without sandbox
 alias lldb='/Applications/Xcode.app/Contents/Developer/usr/bin/lldb'
 
-# python3
-alias py3='python3'
-
 # bat instead of cat
 alias cat='bat'
-
-# exa instead of ls
-alias ls='exa'
-
-# htop instead of top
-alias top='sudo htop'
 
 # vim shortcuts in shell
 bindkey -v
@@ -200,32 +164,31 @@ export CLICOLOR=1
 # put casks in ~/Applications
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
-# ruby
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-
 # brew completions
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 
-export PATH="$PATH:$HOME/.utils" # Add my own shell scripts
-export PATH="/usr/local/miniconda3/bin:$PATH" # Add Anaconda
-export PATH="$PATH:$HOME/.cargo/bin" # add Rust
-
-# MKL Variables
-export MKLROOT="/opt/intel/mkl"
-export DYLD_LIBRARY_PATH="/opt/intel/tbb/lib:/opt/intel/lib:/opt/intel/mkl/lib:$DYLD_LIBRARY_PATH"
-export LIBRARY_PATH="/opt/intel/tbb/lib:/opt/intel/lib:/opt/intel/mkl/lib:$LIBRARY_PATH"
-export NLSPATH="/opt/intel/mkl/lib/locale/%l_%t/%N"
-export CPATH="$MKLROOT/include:$CPATH"
-
-# gems
-export PATH="$PATH:/usr/local/lib/ruby/gems/2.5.0/bin"
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-compinit
 
-# added by travis gem
-[ -f /Users/lavi/.travis/travis.sh ] && source /Users/lavi/.travis/travis.sh
+### Added by Zplugin's installer
+source '/Users/lblumberg/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin's installer chunk
+######################
+# ZPLUGIN
+
+zplugin ice wait"0" blockf
+zplugin light zsh-users/zsh-completions
+
+zplugin ice wait"0" atload"_zsh_autosuggest_start"
+zplugin light zsh-users/zsh-autosuggestions
+
+zplugin ice wait"0" atinit"zpcompinit; zpcdreplay"
+zplugin light zdharma/fast-syntax-highlighting
+
+# END ZPLUGIN
+######################
