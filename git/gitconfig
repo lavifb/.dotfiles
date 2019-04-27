@@ -1,8 +1,6 @@
 [user]
-	name = Lavi
-	email = lavifb@gmail.com
-[push]
-	default = simple
+	name = Lavi Blumberg
+	email = lblumberg@novus.com
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
@@ -18,4 +16,4 @@
 	process = git-lfs filter-process
 	required = true
 [core]
-	excludesfile = /Users/lavi/.gitignore_global
+	excludesfile = /Users/lblumberg/.gitignore_global
