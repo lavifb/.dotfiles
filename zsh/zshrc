@@ -7,6 +7,11 @@
 
 # zmodload zsh/zprof
 
+# History config
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+
 # fix base-16 colors
 ~/.zscripts/base16-tomorrow-night.sh
 
@@ -116,6 +121,7 @@ alias gcm='git commit -m'
 alias gam='git commit -am'
 alias gc='git commit'
 alias gp='git push'
+alias gpo='git push origin'
 alias gll='git pull'
 alias gr='git reset'
 alias ghh='git reset HEAD --hard'
@@ -125,6 +131,7 @@ alias gmr='git merge'
 alias gb='git branch'
 alias gd='git diff'
 alias glg='git log --graph --pretty=oneline --abbrev-commit'
+alias gf='git fetch'
 
 # fix nvim correct
 alias nvim='nocorrect nvim'
@@ -172,6 +179,12 @@ fi
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# kube
+alias k='kubectl'
+
+# Novus aliases
+alias a='sbt alpha-app/run < /dev/null'
+alias ad='a -jvm-debug 5005'
 
 ### Added by Zplugin's installer
 source '/Users/lblumberg/.zplugin/bin/zplugin.zsh'
@@ -184,6 +197,12 @@ autoload -Uz _zplugin
 zplugin ice wait"0" blockf
 zplugin light zsh-users/zsh-completions
 
+#zplugin ice wait"0" blockf
+#zplugin snippet "https://raw.githubusercontent.com/docker/compose/release/contrib/completion/zsh/_docker-compose"
+
+zplugin ice wait"0" blockf
+zplugin light nnao45/zsh-kubectl-completion
+
 zplugin ice wait"0" atload"_zsh_autosuggest_start"
 zplugin light zsh-users/zsh-autosuggestions
 
@@ -192,3 +211,18 @@ zplugin light zdharma/fast-syntax-highlighting
 
 # END ZPLUGIN
 ######################
+
+# Novus python pipup
+function pipup () {
+  if [ $# -ne 1 ]; then
+    echo "Need 1 parameter"
+    echo "Usage: $0 [path-to-whl]"
+  else
+    /usr/local/bin/python3 -m twine upload -r pypicloud $1
+  fi
+}
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
