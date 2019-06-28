@@ -186,31 +186,8 @@ alias k='kubectl'
 alias a='sbt alpha-app/run < /dev/null'
 alias ad='a -jvm-debug 5005'
 
-### Added by Zplugin's installer
-source '/Users/lblumberg/.zplugin/bin/zplugin.zsh'
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin's installer chunk
-######################
-# ZPLUGIN
-
-zplugin ice wait"0" blockf
-zplugin light zsh-users/zsh-completions
-
-#zplugin ice wait"0" blockf
-#zplugin snippet "https://raw.githubusercontent.com/docker/compose/release/contrib/completion/zsh/_docker-compose"
-
-zplugin ice wait"0" blockf
-zplugin light nnao45/zsh-kubectl-completion
-
-zplugin ice wait"0" atload"_zsh_autosuggest_start"
-zplugin light zsh-users/zsh-autosuggestions
-
-zplugin ice wait"0" atinit"zpcompinit; zpcdreplay"
-zplugin light zdharma/fast-syntax-highlighting
-
-# END ZPLUGIN
-######################
+# nvm
+export NVM_DIR="$HOME/.nvm"
 
 # Novus python pipup
 function pipup () {
@@ -222,7 +199,33 @@ function pipup () {
   fi
 }
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
+
+### Added by Zplugin installer
+source '/Users/lblumberg/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin installer chunk
+######################
+# ZPLUGIN
+
+zplugin ice wait"0" blockf
+zplugin light zsh-users/zsh-completions
+
+zplugin ice as"completion"
+zplugin snippet "https://raw.githubusercontent.com/docker/compose/release/contrib/completion/zsh/_docker-compose"
+
+#zplugin ice wait"0" blockf
+#zplugin light nnao45/zsh-kubectl-completion
+
+zplugin ice wait"0" atload"_zsh_autosuggest_start"
+zplugin light zsh-users/zsh-autosuggestions
+
+zplugin ice wait"0" atinit"zpcompinit; zpcdreplay"
+zplugin light zdharma/fast-syntax-highlighting
+
+zplugin ice wait"1" pick "nvm.sh"
+zplugin light /usr/local/opt/nvm
+
+# END ZPLUGIN
+######################
+
