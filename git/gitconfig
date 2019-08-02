@@ -17,3 +17,5 @@
 	required = true
 [core]
 	excludesfile = /Users/lblumberg/.gitignore_global
+[diff "sopsdiffer"]
+	textconv = sops -d

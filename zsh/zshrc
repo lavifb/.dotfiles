@@ -185,6 +185,7 @@ alias k='kubectl'
 # Novus aliases
 alias a='sbt alpha-app/run < /dev/null'
 alias ad='a -jvm-debug 5005'
+alias aloha-start='docker run -p 8000:8000 registry.novus.com/aloha:stable &'
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
