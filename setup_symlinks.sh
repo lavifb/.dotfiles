@@ -12,6 +12,7 @@ ln -sf $DOTHOME/zsh/zshenv $HOME/.zshenv
 ln -sf $DOTHOME/zsh/zshrc $HOME/.zshrc
 
 ln -sfh $DOTHOME/zsh/zscripts $HOME/.zscripts
+ln -sfh $DOTHOME/zsh/zshrc.d $HOME/.zshrc.d
 
 # vim
 ln -sf  $DOTHOME/vim/init.vim $HOME/.vimrc

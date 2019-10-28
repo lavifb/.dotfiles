@@ -13,7 +13,3 @@
     zcompile "$zcompdump"
   fi
 } &!
-
-if ! type "$fortune" > /dev/null; then
-  fortune -s
-fi
